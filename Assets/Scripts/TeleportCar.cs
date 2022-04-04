@@ -21,7 +21,7 @@ public class TeleportCar : MonoBehaviour
             index++;
         }
 
-        car.transform.position = new Vector3(10, 1.5f, listOfTeleports[index]);
+        car.transform.position = new Vector3(-10, 1.5f, listOfTeleports[index]);
         material.text = "Material: " + listOfMaterials[index];
         friction.text = "Friction Coefficient: " + listOfFrictionCoefficients[index];
         
