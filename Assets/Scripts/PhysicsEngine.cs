@@ -7,15 +7,18 @@ public class PhysicsEngine : MonoBehaviour {
 	public float mass;              // [kg]
 	public Vector3 velocityVector;  // [m s^-1]
 	public Vector3 netForceVector;  // N [kg m s^-2]
+	private Vector3 forwardForceVector;
 	public double vAverage;
 	public GameObject Direction;
 	public Text velocityText;
 
-	private List<Vector3> forceVectorList = new List<Vector3>();
+	public List<Vector3> forceVectorList = new List<Vector3>();
 
 	// Use this for initialization
 	void Start() {
 		SetupThrustTrails();
+		forwardForceVector = new Vector3(0, 0, 0);
+
 	}
 
 	void FixedUpdate() {
@@ -29,11 +32,15 @@ public class PhysicsEngine : MonoBehaviour {
 
 	void UpdatePosition() {
 
-		//Direction
-		Vector3 offset = Direction.transform.position - transform.position;
+        //Direction
+        /*Vector3 offset = Direction.transform.position - transform.position;
+        forwardForceVector = offset.normalized * 1500;
+        forceVectorList.Add(forwardForceVector);*/
 
-		// Sum the forces and clear the list
-		netForceVector = offset.normalized * 8;
+        // Sum the forces and clear the list
+        //netForceVector = offset.normalized * 2000;
+        netForceVector = Vector3.zero;
+		Debug.Log("Forward Velocity Magn: " + netForceVector.magnitude);
 		foreach (Vector3 forceVector in forceVectorList)
 		{
 			netForceVector = netForceVector + forceVector;
@@ -74,8 +81,8 @@ public class PhysicsEngine : MonoBehaviour {
 			int i = 0;
 			foreach (Vector3 forceVector in forceVectorList)
 			{
-				lineRenderer.SetPosition(i, Vector3.zero);
-				lineRenderer.SetPosition(i + 1, -forceVector);
+				lineRenderer.SetPosition(i, GetComponent<Transform>().position);
+				lineRenderer.SetPosition(i + 1, forceVector);
 				i = i + 2;
 			}
 		}
