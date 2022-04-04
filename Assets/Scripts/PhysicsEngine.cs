@@ -53,7 +53,7 @@ public class PhysicsEngine : MonoBehaviour {
 		lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
 		lineRenderer.SetColors(Color.yellow, Color.yellow);
 		lineRenderer.SetWidth(0.2F, 0.2F);
-		lineRenderer.useWorldSpace = false;
+		lineRenderer.useWorldSpace = true;
 	}
 
 	// Update is called once per frame
