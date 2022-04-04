@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class CentripetalForce : MonoBehaviour {
 
-    private GameObject circleCenter;
+    public GameObject circleCenter;
     private float angle;
+    public List<PhysicMaterial> listOfPhysicMaterials;
+    public List<GameObject> listOfCenters;
+    public int index = 0;
+
     // Start is called before the first frame update
     void Start() {
-        circleCenter = GameObject.FindGameObjectWithTag("ccenter");
+        circleCenter = listOfCenters[index];
         angle = 60.0f;
     }
 
