@@ -39,6 +39,9 @@ public class CentripetalForce : MonoBehaviour {
             //Vector3 velocitySquared = Mathf.Pow(velocityMagnitude, 2) * velocityNormalized;
 
             Vector3 centripetalForce = GetComponent<PhysicsEngine>().mass * Mathf.Pow(velocityMagnitude, 2) * offset.normalized / 30;
+            //Above formula needs to change to
+            //centripetalForce = Static Coefficient of Friction * N (where N = Normal Force = mg, or just m in our case)
+            
             //Debug.Log(centripetalForce);
             // Add the force to the list of the forces on physicsEngine for object A; 
             // Note that you need to take care of the negative sign (downward acceleration) manually:
