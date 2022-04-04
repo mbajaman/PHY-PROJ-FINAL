@@ -14,7 +14,17 @@ public class CentripetalForce : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         circleCenter = listOfCenters[index];
-        angle = 60.0f;
+        angle = 90.0f;
+    }
+
+    void Update() {
+        if (Input.GetKey(KeyCode.A)){
+            transform.Rotate(new Vector3(0, -Time.deltaTime * 20, 0));
+        }
+
+        if (Input.GetKey(KeyCode.D)) {
+            transform.Rotate(new Vector3(0, Time.deltaTime * 20, 0));
+        }
     }
 
     // Update is called once per frame
@@ -47,18 +57,20 @@ public class CentripetalForce : MonoBehaviour {
             // Vector3 centripetalForce = GetComponent<PhysicsEngine>().mass * Mathf.Pow(velocityMagnitude, 2) * offset.normalized / 30;
             //Above formula needs to change to
             //centripetalForce = Static Coefficient of Friction * N (where N = Normal Force = mg, or just m in our case)
-            Vector3 centripetalForce = (float) staticFriction * GetComponent<PhysicsEngine>().mass * offset.normalized / 30;
+            Vector3 centripetalForce = (float) staticFriction * GetComponent<PhysicsEngine>().mass * offset.normalized;
 
             //Debug.Log(centripetalForce);
             // Add the force to the list of the forces on physicsEngine for object A; 
             // Note that you need to take care of the negative sign (downward acceleration) manually:
 
             // Rotate the cube by converting the angles into a quaternion.
-            float tiltAroundZX = Input.GetAxis("Horizontal") * angle + -60;
-            Debug.Log(tiltAroundZX);
+            float tiltAroundZX = Input.GetAxis("Horizontal") * -angle;
+            Debug.Log(Input.GetAxis("Horizontal"));
+            //Debug.Log(tiltAroundZX);
+            //Quaternion target = Quaternion.Euler(0, tiltAroundZX * 0.01f, 0);
+            //transform.rotation = Quaternion.EulerRotation(0, tiltAroundZX, 0);
             //angle += 4 * 0.1f;
-            Quaternion target = Quaternion.Euler(0, tiltAroundZX, 0);
-            transform.rotation = Quaternion.EulerRotation(0, tiltAroundZX, 0);
+            //Quaternion target = Quaternion.Euler(0, -angle, 0);
             //transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 5.0f);
             GetComponent<PhysicsEngine>().AddForce(-centripetalForce);
         }

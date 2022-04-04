@@ -1168,6 +1168,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8088899519412151347, guid: bd270f5442d387d47b22cd361fa7b887, type: 3}
+      propertyPath: m_AngularDrag
+      value: 8.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088899519412151347, guid: bd270f5442d387d47b22cd361fa7b887, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
@@ -1300,7 +1304,9 @@ MonoBehaviour:
   mass: 1
   velocityVector: {x: 0, y: 0, z: 0}
   netForceVector: {x: 0, y: 0, z: 0}
+  vAverage: 0
   Direction: {fileID: 1721148948}
+  velocityText: {fileID: 233104501}
   showTrails: 1
 --- !u!114 &5001571698925495295
 MonoBehaviour:
@@ -1314,3 +1320,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33b79ac6a06dd0a49adcea95a9ba9eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circleCenter: {fileID: 528932514}
+  listOfPhysicMaterials:
+  - {fileID: 13400000, guid: 56d9b38e45363ee42a8170dc40e8d9d3, type: 2}
+  listOfCenters:
+  - {fileID: 528932514}
+  staticFriction: 0
+  index: 0

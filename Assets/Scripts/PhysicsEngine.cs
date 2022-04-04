@@ -33,7 +33,7 @@ public class PhysicsEngine : MonoBehaviour {
 		Vector3 offset = Direction.transform.position - transform.position;
 
 		// Sum the forces and clear the list
-		netForceVector = offset.normalized;
+		netForceVector = offset.normalized * 8;
 		foreach (Vector3 forceVector in forceVectorList)
 		{
 			netForceVector = netForceVector + forceVector;
