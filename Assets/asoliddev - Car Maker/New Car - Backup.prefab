@@ -71,11 +71,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7574725825018735783}
   - component: {fileID: 8088899519412151347}
-  - component: {fileID: 5492254670362426027}
-  - component: {fileID: 6739944160476681141}
-  - component: {fileID: 4587673476562421111}
   m_Layer: 0
-  m_Name: New Car
+  m_Name: New Car - Backup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,68 +111,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5492254670362426027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632161405121123607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eac61ecc9d94834ea201da547dce2c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocityExponent: 1
-  dragConstant: 1
---- !u!114 &6739944160476681141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632161405121123607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33b79ac6a06dd0a49adcea95a9ba9eb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  circleCenter: {fileID: 0}
-  listOfPhysicMaterials:
-  - {fileID: 13400000, guid: 3430e116a5c0468449bf7f06c214b8ed, type: 2}
-  - {fileID: 13400000, guid: bd142f4ae940e6648a09365750fb8d29, type: 2}
-  - {fileID: 13400000, guid: c3d9446ccc52cee4394d2b1e0ecb195f, type: 2}
-  - {fileID: 13400000, guid: 9c950eafcef79b04c9775c3e8d38cd21, type: 2}
-  - {fileID: 13400000, guid: 56d9b38e45363ee42a8170dc40e8d9d3, type: 2}
-  - {fileID: 13400000, guid: 9af4fecc55bcf6c4f9c153e26f863b18, type: 2}
-  listOfCenters:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  staticFriction: 0
-  index: 0
---- !u!114 &4587673476562421111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632161405121123607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 217fd8ce50aa2d642bd821133497ed18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mass: 1
-  velocityVector: {x: 0, y: 0, z: 0}
-  netForceVector: {x: 0, y: 0, z: 0}
-  vAverage: 0
-  Direction: {fileID: 4199669570931912149}
-  velocityText: {fileID: 0}
-  showTrails: 1
 --- !u!1 &1527458994046056678
 GameObject:
   m_ObjectHideFlags: 0

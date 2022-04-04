@@ -1,10 +1,15 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PhysicsEngine : MonoBehaviour {
 	public float mass;              // [kg]
 	public Vector3 velocityVector;  // [m s^-1]
 	public Vector3 netForceVector;  // N [kg m s^-2]
+	public double vAverage;
+	public GameObject Direction;
+	public Text velocityText;
 
 	private List<Vector3> forceVectorList = new List<Vector3>();
 
@@ -23,8 +28,12 @@ public class PhysicsEngine : MonoBehaviour {
 	}
 
 	void UpdatePosition() {
+
+		//Direction
+		Vector3 offset = Direction.transform.position - transform.position;
+
 		// Sum the forces and clear the list
-		netForceVector = Vector3.zero;
+		netForceVector = offset.normalized * 8;
 		foreach (Vector3 forceVector in forceVectorList)
 		{
 			netForceVector = netForceVector + forceVector;
@@ -53,7 +62,7 @@ public class PhysicsEngine : MonoBehaviour {
 		lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
 		lineRenderer.SetColors(Color.yellow, Color.yellow);
 		lineRenderer.SetWidth(0.2F, 0.2F);
-		lineRenderer.useWorldSpace = false;
+		lineRenderer.useWorldSpace = true;
 	}
 
 	// Update is called once per frame
@@ -74,14 +83,27 @@ public class PhysicsEngine : MonoBehaviour {
 			lineRenderer.enabled = false;
 		}
 	}
+
+	void calcAverageV() {
+		vAverage = Math.Pow(velocityVector.x, 2.0) + Math.Pow(velocityVector.z, 2.0);
+		vAverage = Math.Sqrt(vAverage);
+
+		velocityText.text = "Velocity: " + vAverage.ToString("0.00");
+		
+	}
+
+	private void Update() {
+		calcAverageV();
+	}
+
 	//private void OnCollisionEnter(Collision collision) {
 	//	Debug.Log("Collision!");
-		
+
 	//	if(gameObject.tag == "ball") {
 	//		//velocityVector = new Vector3(0f, 9.8f, 0f);
 	//		transform.position = new Vector3(transform.position.x, 0, transform.position.z);
 	//		Debug.Log("Set position y = 0");
- //       }
+	//       }
 	//}
 
 }
