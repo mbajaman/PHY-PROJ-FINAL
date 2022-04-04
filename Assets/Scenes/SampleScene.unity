@@ -341,7 +341,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Material: '
+  m_Text: 'Material: Dry Asphalt'
 --- !u!222 &82449244
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 233104502}
   - component: {fileID: 233104501}
   m_Layer: 5
-  m_Name: SpeedTxt
+  m_Name: VelocityText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -624,7 +624,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Speed: '
+  m_Text: 'Velocity: '
 --- !u!222 &233104502
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -859,7 +859,7 @@ RectTransform:
   m_Children:
   - {fileID: 1380108964}
   m_Father: {fileID: 1532144888}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -980,7 +980,7 @@ Transform:
   - {fileID: 1485898590}
   - {fileID: 696828519}
   m_Father: {fileID: 1358648525}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &342269210 stripped
 GameObject:
@@ -1039,7 +1039,7 @@ RectTransform:
   m_Children:
   - {fileID: 1466561170}
   m_Father: {fileID: 1532144888}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1061,6 +1061,22 @@ MonoBehaviour:
   car: {fileID: 5001571698925495277}
   index: 0
   listOfTeleports: 0a0000005000000096000000dc0000002201000068010000
+  material: {fileID: 82449243}
+  listOfMaterials:
+  - Dry Asphalt
+  - Wet Asphalt
+  - Dry Concrete
+  - Wet Concrete
+  - Rubber
+  - Cardboard
+  friction: {fileID: 1274420103}
+  listOfFrictionCoefficients:
+  - 0.9
+  - 0.7
+  - 0.85
+  - 0.75
+  - 1.16
+  - 0.8
 --- !u!114 &384064166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1943,6 +1959,85 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cd1d2c7f903af547a1dc6525af1bde3, type: 3}
+--- !u!1 &1274420101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1274420102}
+  - component: {fileID: 1274420104}
+  - component: {fileID: 1274420103}
+  m_Layer: 5
+  m_Name: FrictionText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1274420102
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274420101}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1532144888}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -300, y: 160}
+  m_SizeDelta: {x: 160, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1274420103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274420101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Friction Coefficient: '
+--- !u!222 &1274420104
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274420101}
+  m_CullTransparentMesh: 1
 --- !u!1 &1344000779 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7cd1d2c7f903af547a1dc6525af1bde3, type: 3}
@@ -2018,8 +2113,8 @@ Transform:
   m_LocalPosition: {x: -3.338201, y: 2.3534253, z: 0.29279852}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 329785536}
   - {fileID: 1976308177}
+  - {fileID: 329785536}
   - {fileID: 53557563}
   - {fileID: 1501693574}
   - {fileID: 748137301}
@@ -2604,6 +2699,7 @@ RectTransform:
   m_Children:
   - {fileID: 233104500}
   - {fileID: 82449242}
+  - {fileID: 1274420102}
   - {fileID: 272354861}
   - {fileID: 384064164}
   m_Father: {fileID: 0}
@@ -3248,7 +3344,7 @@ Transform:
   - {fileID: 817909073}
   - {fileID: 263754756}
   m_Father: {fileID: 1358648525}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1982171933
 PrefabInstance:
@@ -3664,7 +3760,7 @@ MonoBehaviour:
     motorTorque: 1200
     steeringAngle: 50
   speed: 0
---- !u!114 &5001571698925495292
+--- !u!114 &5001571698925495279
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3673,12 +3769,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 5001571698925495277}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b79ac6a06dd0a49adcea95a9ba9eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5001571698925495280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4199669570931912149, guid: bd270f5442d387d47b22cd361fa7b887, type: 3}
+  m_PrefabInstance: {fileID: 5001571698925495267}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5001571698925495292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5001571698925495277}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4a9530e4d8295344baaf95b095064a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuelMass: 0.005
-  maxThrust: 0.5
-  thrustPercent: 0.038
+  fuelMass: 10000
+  maxThrust: 10
+  thrustPercent: 1
   thrustUnitVector: {x: -1, y: 0, z: 0}
 --- !u!114 &5001571698925495293
 MonoBehaviour:
@@ -3695,6 +3808,9 @@ MonoBehaviour:
   mass: 10
   velocityVector: {x: 0, y: 0, z: 0}
   netForceVector: {x: 0, y: 0, z: 0}
+  vAverage: 0
+  Direction: {fileID: 5001571698925495280}
+  velocityText: {fileID: 233104501}
   showTrails: 1
 --- !u!114 &5001571698925495294
 MonoBehaviour:
@@ -3709,4 +3825,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityExponent: 0
-  dragConstant: 1.15
+  dragConstant: 0

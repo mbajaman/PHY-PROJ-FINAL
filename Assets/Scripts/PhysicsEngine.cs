@@ -1,11 +1,15 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PhysicsEngine : MonoBehaviour {
 	public float mass;              // [kg]
 	public Vector3 velocityVector;  // [m s^-1]
 	public Vector3 netForceVector;  // N [kg m s^-2]
+	public double vAverage;
 	public GameObject Direction;
+	public Text velocityText;
 
 	private List<Vector3> forceVectorList = new List<Vector3>();
 
@@ -40,7 +44,6 @@ public class PhysicsEngine : MonoBehaviour {
 		Vector3 accelerationVector = netForceVector / mass;
 		velocityVector += accelerationVector * Time.deltaTime;
 		transform.position += velocityVector * Time.deltaTime;
-
 	}
 
 	private void OnCollisionEnter(Collision collision) {
@@ -80,14 +83,27 @@ public class PhysicsEngine : MonoBehaviour {
 			lineRenderer.enabled = false;
 		}
 	}
+
+	void calcAverageV() {
+		vAverage = Math.Pow(velocityVector.x, 2.0) + Math.Pow(velocityVector.z, 2.0);
+		vAverage = Math.Sqrt(vAverage);
+
+		velocityText.text = "Velocity: " + vAverage.ToString("0.00");
+		
+	}
+
+	private void Update() {
+		calcAverageV();
+	}
+
 	//private void OnCollisionEnter(Collision collision) {
 	//	Debug.Log("Collision!");
-		
+
 	//	if(gameObject.tag == "ball") {
 	//		//velocityVector = new Vector3(0f, 9.8f, 0f);
 	//		transform.position = new Vector3(transform.position.x, 0, transform.position.z);
 	//		Debug.Log("Set position y = 0");
- //       }
+	//       }
 	//}
 
 }
