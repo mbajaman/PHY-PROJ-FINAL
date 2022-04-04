@@ -5,6 +5,7 @@ public class PhysicsEngine : MonoBehaviour {
 	public float mass;              // [kg]
 	public Vector3 velocityVector;  // [m s^-1]
 	public Vector3 netForceVector;  // N [kg m s^-2]
+	public GameObject Direction;
 
 	private List<Vector3> forceVectorList = new List<Vector3>();
 
@@ -23,8 +24,12 @@ public class PhysicsEngine : MonoBehaviour {
 	}
 
 	void UpdatePosition() {
+
+		//Direction
+		Vector3 offset = Direction.transform.position - transform.position;
+
 		// Sum the forces and clear the list
-		netForceVector = Vector3.zero;
+		netForceVector = offset.normalized;
 		foreach (Vector3 forceVector in forceVectorList)
 		{
 			netForceVector = netForceVector + forceVector;
@@ -35,6 +40,7 @@ public class PhysicsEngine : MonoBehaviour {
 		Vector3 accelerationVector = netForceVector / mass;
 		velocityVector += accelerationVector * Time.deltaTime;
 		transform.position += velocityVector * Time.deltaTime;
+
 	}
 
 	private void OnCollisionEnter(Collision collision) {
