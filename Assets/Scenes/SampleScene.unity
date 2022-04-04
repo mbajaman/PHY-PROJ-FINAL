@@ -2029,7 +2029,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Friction Coefficient: '
+  m_Text: 'Friction Coefficient: 0.9'
 --- !u!222 &1274420104
 CanvasRenderer:
   m_ObjectHideFlags: 0
