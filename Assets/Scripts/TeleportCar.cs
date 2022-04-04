@@ -17,12 +17,14 @@ public class TeleportCar : MonoBehaviour
     public void teleport() {
         if (index >= 5) {
             index = 0;
+            car.GetComponent<CentripetalForce>().index = 0;
         } else {
             index++;
+            car.GetComponent<CentripetalForce>().index++;
         }
 
-        car.GetComponent<CentripetalForce>().index++;
         car.GetComponent<CentripetalForce>().circleCenter = car.GetComponent<CentripetalForce>().listOfCenters[index];
+
         car.transform.position = new Vector3(-10, 1.5f, listOfTeleports[index]);
         material.text = "Material: " + listOfMaterials[index];
         friction.text = "Friction Coefficient: " + listOfFrictionCoefficients[index];

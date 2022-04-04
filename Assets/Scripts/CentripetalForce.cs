@@ -8,6 +8,7 @@ public class CentripetalForce : MonoBehaviour {
     private float angle;
     public List<PhysicMaterial> listOfPhysicMaterials;
     public List<GameObject> listOfCenters;
+    public double staticFriction;
     public int index = 0;
 
     // Start is called before the first frame update
@@ -19,6 +20,7 @@ public class CentripetalForce : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate() { 
         CalculateCentripetalForce();
+        staticFriction = listOfPhysicMaterials[index].staticFriction;
     }
 
     void CalculateCentripetalForce() {
@@ -42,10 +44,11 @@ public class CentripetalForce : MonoBehaviour {
 
             //Vector3 velocitySquared = Mathf.Pow(velocityMagnitude, 2) * velocityNormalized;
 
-            Vector3 centripetalForce = GetComponent<PhysicsEngine>().mass * Mathf.Pow(velocityMagnitude, 2) * offset.normalized / 30;
+            // Vector3 centripetalForce = GetComponent<PhysicsEngine>().mass * Mathf.Pow(velocityMagnitude, 2) * offset.normalized / 30;
             //Above formula needs to change to
             //centripetalForce = Static Coefficient of Friction * N (where N = Normal Force = mg, or just m in our case)
-            
+            Vector3 centripetalForce = (float) staticFriction * GetComponent<PhysicsEngine>().mass * offset.normalized / 30;
+
             //Debug.Log(centripetalForce);
             // Add the force to the list of the forces on physicsEngine for object A; 
             // Note that you need to take care of the negative sign (downward acceleration) manually:
