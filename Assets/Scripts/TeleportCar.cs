@@ -25,9 +25,12 @@ public class TeleportCar : MonoBehaviour
 
         car.GetComponent<CentripetalForce>().circleCenter = car.GetComponent<CentripetalForce>().listOfCenters[index];
 
-        car.transform.position = new Vector3(-10, 1.5f, listOfTeleports[index]);
+        car.transform.SetPositionAndRotation(new Vector3(-10, 1.5f, listOfTeleports[index]), Quaternion.Euler(0, -90, 0));
         material.text = "Material: " + listOfMaterials[index];
         friction.text = "Friction Coefficient: " + listOfFrictionCoefficients[index];
+
+        car.GetComponent<PhysicsEngine>().velocityVector = Vector3.zero;
+        car.GetComponent<PhysicsEngine>().forceVectorList.Clear();
         
     }
 }
