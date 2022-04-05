@@ -36,11 +36,10 @@ public class PhysicsEngine : MonoBehaviour {
         Vector3 offset = Direction.transform.position - transform.position;
         forwardForceVector = offset.normalized * 2000;
         forceVectorList.Add(forwardForceVector);
+		Debug.Log("Forward Velocity Magn: " + forwardForceVector.magnitude);
 
-        // Sum the forces and clear the list
-        //netForceVector = offset.normalized * 2000;
-        netForceVector = Vector3.zero;
-		Debug.Log("Forward Velocity Magn: " + netForceVector.magnitude);
+		// Sum the forces and clear the list
+		netForceVector = Vector3.zero;
 		foreach (Vector3 forceVector in forceVectorList)
 		{
 			netForceVector = netForceVector + forceVector;
@@ -102,15 +101,5 @@ public class PhysicsEngine : MonoBehaviour {
 	private void Update() {
 		calcAverageV();
 	}
-
-	//private void OnCollisionEnter(Collision collision) {
-	//	Debug.Log("Collision!");
-
-	//	if(gameObject.tag == "ball") {
-	//		//velocityVector = new Vector3(0f, 9.8f, 0f);
-	//		transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-	//		Debug.Log("Set position y = 0");
-	//       }
-	//}
 
 }
