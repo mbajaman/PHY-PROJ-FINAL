@@ -34,7 +34,7 @@ public class PhysicsEngine : MonoBehaviour {
 
         //Direction
         Vector3 offset = Direction.transform.position - transform.position;
-        forwardForceVector = offset.normalized * 1500;
+        forwardForceVector = offset.normalized * 2000;
         forceVectorList.Add(forwardForceVector);
 
         // Sum the forces and clear the list

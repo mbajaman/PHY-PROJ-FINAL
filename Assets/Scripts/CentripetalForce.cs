@@ -43,7 +43,7 @@ public class CentripetalForce : MonoBehaviour {
             //Vector3 centripetalForce = GetComponent<PhysicsEngine>().mass * Mathf.Pow(velocityMagnitude, 2) * offset.normalized / 30;
             //Above formula needs to change to
             //centripetalForce = Static Coefficient of Friction * N (where N = Normal Force = mg, or just m in our case)
-            Vector3 centripetalForce = (float) staticFriction * GetComponent<PhysicsEngine>().mass * offset.normalized;
+            Vector3 centripetalForce = (float) staticFriction * GetComponent<PhysicsEngine>().mass * offset.normalized * 9.81f;
 
             Debug.Log("CF Magnitude: " + centripetalForce.magnitude);
             return -centripetalForce;
