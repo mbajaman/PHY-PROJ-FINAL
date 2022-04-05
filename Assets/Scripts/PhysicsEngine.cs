@@ -40,8 +40,7 @@ public class PhysicsEngine : MonoBehaviour {
 
 		// Sum the forces and clear the list
 		netForceVector = Vector3.zero;
-		foreach (Vector3 forceVector in forceVectorList)
-		{
+		foreach (Vector3 forceVector in forceVectorList) {
 			netForceVector = netForceVector + forceVector;
 		}
 		forceVectorList = new List<Vector3>();
@@ -50,10 +49,6 @@ public class PhysicsEngine : MonoBehaviour {
 		Vector3 accelerationVector = netForceVector / mass;
 		velocityVector += accelerationVector * Time.deltaTime;
 		transform.position += velocityVector * Time.deltaTime;
-	}
-
-	private void OnCollisionEnter(Collision collision) {
-		// this.enabled = !this.enabled;
 	}
 
 	/// Code for drawing thrust tails
@@ -78,8 +73,7 @@ public class PhysicsEngine : MonoBehaviour {
 			numberOfForces = forceVectorList.Count;
 			lineRenderer.SetVertexCount(numberOfForces * 2);
 			int i = 0;
-			foreach (Vector3 forceVector in forceVectorList)
-			{
+			foreach (Vector3 forceVector in forceVectorList) {
 				lineRenderer.SetPosition(i, GetComponent<Transform>().position);
 				lineRenderer.SetPosition(i + 1, forceVector);
 				i = i + 2;
@@ -95,7 +89,6 @@ public class PhysicsEngine : MonoBehaviour {
 		vAverage = Math.Sqrt(vAverage);
 
 		velocityText.text = "Velocity: " + vAverage.ToString("0.00");
-		
 	}
 
 	private void Update() {
