@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// This class ensures wheel material matches what the material on the track
 public class enableWheelPhysicMaterial : MonoBehaviour {
     private WheelCollider wheel;
     void Start() {

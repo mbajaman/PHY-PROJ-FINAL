@@ -1,8 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// This class handles moving the car to the different tracks and put it in the right place with the correct orientation
 public class TeleportCar : MonoBehaviour
 {
     public GameObject car;
@@ -31,6 +31,5 @@ public class TeleportCar : MonoBehaviour
 
         car.GetComponent<PhysicsEngine>().velocityVector = Vector3.zero;
         car.GetComponent<PhysicsEngine>().forceVectorList.Clear();
-        
     }
 }
